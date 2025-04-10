@@ -1,13 +1,12 @@
 package com.university.bookstore;
 
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
+import jakarta.ws.rs.ApplicationPath;
+import org.glassfish.jersey.server.ResourceConfig;
 
-/**
- * Configures JAX-RS for the application.
- * @author Juneau
- */
-@ApplicationPath("resources")
-public class JAXRSConfiguration extends Application {
-    
+@ApplicationPath("/api")
+public class JAXRSConfiguration extends ResourceConfig {
+    public JAXRSConfiguration() {
+        // Scan for resource classes in the resources package
+        packages("com.university.bookstore.resources");
+    }
 }
