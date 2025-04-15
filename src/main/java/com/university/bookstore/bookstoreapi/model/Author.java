@@ -9,11 +9,23 @@ package com.university.bookstore.bookstoreapi.model;
  * @author user
  */
 public class Author {
+    private String name;
+    private String biography;
+
+    public String getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(String authorId) {
+        this.authorId = authorId;
+    }
+    private String authorId;
 
     public Author() {
     }
 
-    public Author(String name, String biography) {
+    public Author(String authorId,String name, String biography) {
+        this.authorId=authorId;
         this.name = name;
         this.biography = biography;
     }
@@ -33,6 +45,7 @@ public class Author {
     public void setBiography(String biography) {
         this.biography = biography;
     }
-    private String name;
-    private String biography;
+  
+
+  
 }
