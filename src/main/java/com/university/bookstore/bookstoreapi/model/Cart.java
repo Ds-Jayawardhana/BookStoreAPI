@@ -9,5 +9,5 @@ package com.university.bookstore.bookstoreapi.model;
  * @author user
  */
 public class Cart {
-    private 
+  
 }
