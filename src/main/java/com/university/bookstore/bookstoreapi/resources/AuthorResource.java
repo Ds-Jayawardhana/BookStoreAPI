@@ -70,9 +70,27 @@ public class AuthorResource {
     
     @PUT
     @Path("{id}")
-    public Response updateAuthor(@PathParam("id") String auhtorId){
+    public Response updateAuthor(@PathParam("id") String authorId ,Author newAuthor){
         Author author=store.getAuthorList().get(authorId);
         
+        
+        if(author==null){
+            throw new AuthorNotFoundException("Cannot Find Author With Id"+authorId);
+        }
+        
+        if(newAuthor.getBiography()==null || newAuthor.getName()==null){
+            throw new InvalidInputException("Field not must be null");
+        }
+        if(newAuthor.getBiography()!=null){
+            author.setBiography(newAuthor.getBiography());
+        }
+        if(author.getName()!=null ){
+            author.setName(newAuthor.getName());
+        }
+        return Response.status(Response.Status.CREATED)
+                .entity("New data Updated"+ author)
+                .build();
+       
     }
     
         
