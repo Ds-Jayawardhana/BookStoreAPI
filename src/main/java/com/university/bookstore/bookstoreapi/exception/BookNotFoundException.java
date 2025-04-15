@@ -8,6 +8,8 @@ package com.university.bookstore.bookstoreapi.exception;
  *
  * @author user
  */
-public class BookNotFoundException {
-    
+public class BookNotFoundException extends RuntimeException {
+     public BookNotFoundException(String message) {
+        super(message);
+    }
 }
