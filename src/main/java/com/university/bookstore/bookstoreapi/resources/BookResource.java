@@ -63,8 +63,7 @@ public class BookResource {
                 throw new InvalidInputException("The publication year must not be in the future");
             
             }
-            String bookId=store.createBookId();
-            store.getBookList().put(bookId, book);
+            store.createNewBook(book);
             return Response.status(Response.Status.CREATED).build();
    
     } 

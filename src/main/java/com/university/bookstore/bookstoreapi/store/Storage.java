@@ -28,7 +28,7 @@ public class Storage {
         return bookList;
     }
 
-    public static ConcurrentHashMap<String, Author> getAuthorList() {
+    public ConcurrentHashMap<String, Author> getAuthorList() {
         return authorList;
     }
 
@@ -63,14 +63,15 @@ public class Storage {
         return custId;
     }
     
-    public void createNewBookId(Book book ){
+    public void createNewBook(Book book ){
         String bookId=createBookId();
         book.setBookId(bookId);
         bookList.put(bookId,book);
     }
-    public void createNewAuthorId(Author author ){
+    public void createNewAuthor(Author author ){
         String authorId=createAuthorId();
         author.setAuthorId(authorId);
+        authorList.put(authorId, author);
         
     }
 }
