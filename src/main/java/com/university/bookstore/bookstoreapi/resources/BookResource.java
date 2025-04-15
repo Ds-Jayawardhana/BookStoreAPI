@@ -22,6 +22,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -62,7 +63,8 @@ public class BookResource {
                 throw new InvalidInputException("The publication year must not be in the future");
             
             }
-            store.createBookId();
+            String bookId=store.createBookId();
+            store.getBookList().put(bookId, book);
             return Response.status(Response.Status.CREATED).build();
    
     } 
@@ -117,12 +119,25 @@ public class BookResource {
             exsistingBook.setStockQuantity(updatedBook.getStockQuantity());
         }
          
-        Storage.getBookList().put(bookId, updatedBook);
+        Storage.getBookList().put(bookId, exsistingBook);
         
         return Response.status(Response.Status.CREATED)
                 .entity(updatedBook)
                 .build();
     }
-
+    
+    @DELETE
+    @Path("/{id}")
+    public static Response removeBook(@PathParam("id") String bookId){
+         Book exsistingBook=Storage.getBookList().get(bookId);
+         if(exsistingBook==null){
+             throw new BookNotFoundException("Book With ID"+ bookId + "Cannot Found" );
+             
+         }
+          Storage.getBookList().remove(bookId);
+          return Response.noContent().build();
+    }
+    
+    
     
 }
