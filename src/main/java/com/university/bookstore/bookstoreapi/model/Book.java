@@ -10,7 +10,11 @@ package com.university.bookstore.bookstoreapi.model;
  */
 public class Book {
 
-    public Book(String title, String author, String ISBN, int year, int price, int stockQuantity) {
+    public Book() {
+    }
+
+    public Book(String bookId,String title, String author, String ISBN, int year, int price, int stockQuantity) {
+        this.bookId=bookId;
         this.title = title;
         this.author = author;
         this.ISBN = ISBN;
@@ -66,6 +70,16 @@ public class Book {
     public void setStockQuantity(int stockQuantity) {
         this.stockQuantity = stockQuantity;
     }
+
+    public String getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(String bookId) {
+        this.bookId = bookId;
+    }
+    
+    private String bookId;
     private String title;
     private String author;
     private String ISBN;
