@@ -11,6 +11,7 @@ import com.university.bookstore.bookstoreapi.store.Storage;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -92,7 +93,21 @@ public class AuthorResource {
                 .build();
        
     }
+    @DELETE
+    @Path("{id}")
+    public Response removeAuthor(@PathParam("id") String authorId){
+        Author searchAuthor=store.getAuthorList().get(authorId);
+        
+        if(searchAuthor==null){
+           throw new AuthorNotFoundException("Author with Id"+authorId+"cannot find");
+        }
+        
+        store.getAuthorList().remove(authorId);
+        return Response.noContent().build();
+    }
     
+    
+    @
         
 }
     
