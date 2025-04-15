@@ -4,10 +4,22 @@
  */
 package com.university.bookstore.bookstoreapi.store;
 
+import com.university.bookstore.bookstoreapi.model.Author;
+import com.university.bookstore.bookstoreapi.model.Book;
+import com.university.bookstore.bookstoreapi.model.Cart;
+import com.university.bookstore.bookstoreapi.model.Customer;
+import com.university.bookstore.bookstoreapi.model.Order;
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  *
  * @author user
  */
 public class Storage {
+    private static final ConcurrentHashMap<String,Book>bookList=new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<String,Author>authorList=new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<String,Cart>cartList=new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<String,Customer>customerList=new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<String,Order>orderList=new ConcurrentHashMap<>();
     
 }
