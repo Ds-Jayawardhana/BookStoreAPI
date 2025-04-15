@@ -8,6 +8,9 @@ package com.university.bookstore.bookstoreapi.exception;
  *
  * @author user
  */
-public class InvalidInputException {
-    
+
+public class InvalidInputException extends RuntimeException {
+    public InvalidInputException(String message) {
+        super(message);
+    }
 }
