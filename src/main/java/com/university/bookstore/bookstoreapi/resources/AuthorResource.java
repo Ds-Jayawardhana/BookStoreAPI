@@ -8,6 +8,15 @@ package com.university.bookstore.bookstoreapi.resources;
  *
  * @author user
  */
+/*AuthorResource (/authors)
+o POST /authors
+o GET /authors
+o GET /authors/{id}
+o PUT /authors/{id}
+o DELETE /authors/{id}
+o GET /authors/{id}/books*/
+
+
 public class AuthorResource {
     
 }
