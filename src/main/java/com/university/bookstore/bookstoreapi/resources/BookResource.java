@@ -16,7 +16,7 @@ package com.university.bookstore.bookstoreapi.resources;
 
 import com.university.bookstore.bookstoreapi.model.Book;
 import com.university.bookstore.bookstoreapi.store.Storage;
-import java.util.UUID;
+import java.time.LocalDate;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -33,15 +33,29 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 
 public class BookResource {
-    private final Storage store=new Storage();
+    final Storage store=new Storage();
     
-    public static Response createBooks(Book book){
-        if(book.getTitle()==null&&book.getAuthor()==null&&book.getISBN()==null&&book.getYear()==null&&book.getPrice()==null&&book.getStockQuantity()==null){
-            String bookId=UUID.randomUUID().toString();
-            book.setBookId();
-            bookList.put(bookId,book);
-        }
-        
+    public  Response createBooks(Book book){
+            if(
+               book.getTitle() == null || 
+                book.getAuthor() == null || 
+                book.getISBN() == null || 
+                book.getPrice() <= 0 || 
+                book.getStockQuantity() < 0 || 
+                book.getYear() <= 0 ||
+                book.getYear()>LocalDate.now().getYear()){
+                
+                return Response.status(Response.Status.BAD_REQUEST)
+                        .entity("All fields Must exsist")
+                        .build();
+
+                    
+               
+             }else{
+                store.createBookId();
+                return Response.status(Response.Status.CREATED).build();
+                
+            }
     } 
     
     
