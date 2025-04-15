@@ -9,6 +9,7 @@ import com.university.bookstore.bookstoreapi.model.Book;
 import com.university.bookstore.bookstoreapi.model.Cart;
 import com.university.bookstore.bookstoreapi.model.Customer;
 import com.university.bookstore.bookstoreapi.model.Order;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -22,4 +23,17 @@ public class Storage {
     private static final ConcurrentHashMap<String,Customer>customerList=new ConcurrentHashMap<>();
     private static final ConcurrentHashMap<String,Order>orderList=new ConcurrentHashMap<>();
     
+    public String createBookId(){
+        String bookId=UUID.randomUUID().toString();
+        return bookId;
+    }
+    public String createAuthorId(){
+        String authId=UUID.randomUUID().toString();
+        return authId;
+    }
+    public String createCustomerId(){
+        String custId=UUID.randomUUID().toString();
+        return custId;
+    }
 }
+
