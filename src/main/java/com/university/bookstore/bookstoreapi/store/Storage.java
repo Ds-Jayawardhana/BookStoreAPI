@@ -17,11 +17,38 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author user
  */
 public class Storage {
+    
     private static final ConcurrentHashMap<String,Book>bookList=new ConcurrentHashMap<>();
     private static final ConcurrentHashMap<String,Author>authorList=new ConcurrentHashMap<>();
     private static final ConcurrentHashMap<String,Cart>cartList=new ConcurrentHashMap<>();
     private static final ConcurrentHashMap<String,Customer>customerList=new ConcurrentHashMap<>();
     private static final ConcurrentHashMap<String,Order>orderList=new ConcurrentHashMap<>();
+
+    public static ConcurrentHashMap<String, Book> getBookList() {
+        return bookList;
+    }
+
+    public static ConcurrentHashMap<String, Author> getAuthorList() {
+        return authorList;
+    }
+
+    public static ConcurrentHashMap<String, Cart> getCartList() {
+        return cartList;
+    }
+
+    public static ConcurrentHashMap<String, Customer> getCustomerList() {
+        return customerList;
+    }
+
+    public static ConcurrentHashMap<String, Order> getOrderList() {
+        return orderList;
+    }
+    
+    
+        
+    
+    
+    
     
     public String createBookId(){
         String bookId=UUID.randomUUID().toString();
@@ -34,6 +61,17 @@ public class Storage {
     public String createCustomerId(){
         String custId=UUID.randomUUID().toString();
         return custId;
+    }
+    
+    public void createNewBookId(Book book ){
+        String bookId=createBookId();
+        book.setBookId(bookId);
+        bookList.put(bookId,book);
+    }
+    public void createNewAuthorId(Author author ){
+        String authorId=createAuthorId();
+        author.setAuthorId(authorId);
+        
     }
 }
 
