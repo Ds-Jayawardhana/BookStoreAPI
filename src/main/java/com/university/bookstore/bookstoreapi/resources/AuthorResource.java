@@ -4,13 +4,18 @@
  */
 package com.university.bookstore.bookstoreapi.resources;
 
+import com.university.bookstore.bookstoreapi.exception.AuthorNotFoundException;
 import com.university.bookstore.bookstoreapi.exception.InvalidInputException;
 import com.university.bookstore.bookstoreapi.model.Author;
 import com.university.bookstore.bookstoreapi.store.Storage;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -33,7 +38,7 @@ o GET /authors/{id}/books*/
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class AuthorResource {
-    final Storage store =new Storage();
+    final Storage store=new Storage();
     
     
     @POST
@@ -42,16 +47,36 @@ public class AuthorResource {
             throw new InvalidInputException("Any of fields Not must be empty");
         
         }
-        String authorId=store.createAuthorId();
-        store.getAuthorList().put(authorId, author);
+        store.createNewAuthor(author);
         return Response.status(Response.Status.CREATED)
                 .build();
     }
     
     @GET
-    public Author getAllAuthors(){
+    public List<Author> getAllAuthors(){
+            return new  ArrayList<>(store.getAuthorList().values());
+        }
+    
+    @GET
+    @Path("{id}")
+    public Author getAuthorsById(@PathParam("id") String authorId){
+        Author author=store.getAuthorList().get(authorId);
+        if(author==null){
+            throw new AuthorNotFoundException("Cannot Find Author With Id"+authorId);
+        }
+        
+        return author;
+    }
+    
+    @PUT
+    @Path("{id}")
+    public Response updateAuthor(@PathParam("id") String auhtorId){
+        Author author=store.getAuthorList().get(authorId);
         
     }
     
-    
+        
 }
+    
+    
+
