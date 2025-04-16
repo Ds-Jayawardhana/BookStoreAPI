@@ -12,19 +12,19 @@ import java.util.Map;
  * @author user
  */
 public class Cart {
+    
+    private String customerId;
+    private Map<String,Integer>items;
+    
+    
+    
 
-    public Cart(String cartId, String customerId) {
-        this.cartId = cartId;
+    public Cart() {
+    }
+
+    public Cart(String customerId) {
         this.customerId = customerId;
         this.items = new HashMap<>();
-    }
-
-    public String getCartId() {
-        return cartId;
-    }
-
-    public void setCartId(String cartId) {
-        this.cartId = cartId;
     }
 
     public String getCustomerId() {
@@ -35,25 +35,13 @@ public class Cart {
         this.customerId = customerId;
     }
 
-    public Map<String, Integer> getItems() {
+    public Map<String, Integer> getQuantity() {
         return items;
     }
 
-    public void setItems(Map<String, Integer> items) {
-        this.items = items;
+    public void setQuantity(Map<String, Integer> quantity) {
+        this.items = quantity;
     }
-    private String cartId;
-    private String customerId;
-    private Map<String,Integer>items;
-    
-    
-    
-
-    public Cart() {
-        this.items=new HashMap<>();
-    }
-
-
     
     
   
