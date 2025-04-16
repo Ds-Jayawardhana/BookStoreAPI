@@ -4,6 +4,7 @@
  */
 package com.university.bookstore.bookstoreapi.model;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -11,13 +12,18 @@ import java.util.Map;
  * @author user
  */
 public class Cart {
+    private String customerId;
+    private Map<String,Integer>quantity;
+    
+    
+    
 
     public Cart() {
     }
 
     public Cart(String customerId, Map<String, Integer> quantity) {
         this.customerId = customerId;
-        this.quantity = quantity;
+        this.quantity = new HashMap<>();
     }
 
     public String getCustomerId() {
@@ -35,8 +41,7 @@ public class Cart {
     public void setQuantity(Map<String, Integer> quantity) {
         this.quantity = quantity;
     }
-    private String customerId;
-    private Map<String,Integer>quantity;
+    
     
   
 }
