@@ -8,6 +8,10 @@ package com.university.bookstore.bookstoreapi.exception;
  *
  * @author user
  */
-public class CustomerNotFoundException {
+public class CustomerNotFoundException extends RuntimeException {
+    public CustomerNotFoundException(String message){
+        super(message);
+    }
+ 
     
 }
