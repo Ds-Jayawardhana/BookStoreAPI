@@ -74,5 +74,10 @@ public class Storage {
         authorList.put(authorId, author);
         
     }
+    public void createNewCustomer(Customer customer){
+        String customerId=customerId();
+        customer.setCustomerId(customerId);
+        customerList.put(customerId, customer);
+    }
 }
 
