@@ -75,7 +75,7 @@ public class Storage {
         
     }
     public void createNewCustomer(Customer customer){
-        String customerId=customerId();
+        String customerId=createCustomerId();
         customer.setCustomerId(customerId);
         customerList.put(customerId, customer);
     }

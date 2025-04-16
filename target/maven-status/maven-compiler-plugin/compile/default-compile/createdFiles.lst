@@ -1,4 +1,3 @@
-com\university\bookstore\bookstoreapi\resources\ApplicationConfig.class
 com\university\bookstore\bookstoreapi\resources\BookResource.class
 com\university\bookstore\bookstoreapi\model\Author.class
 com\university\bookstore\bookstoreapi\exception\AuthorNotFoundException.class
@@ -14,5 +13,6 @@ com\university\bookstore\bookstoreapi\exception\InvalidInputException.class
 com\university\bookstore\bookstoreapi\exception\OutOfStockException.class
 com\university\bookstore\bookstoreapi\model\Order.class
 com\university\bookstore\bookstoreapi\resources\CartResource.class
+com\university\bookstore\bookstoreapi\store\ApplicationConfig.class
 com\university\bookstore\bookstoreapi\store\Storage.class
 com\university\bookstore\bookstoreapi\resources\OrderResource.class

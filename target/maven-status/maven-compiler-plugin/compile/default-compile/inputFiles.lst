@@ -9,10 +9,10 @@ C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookst
 C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\model\Cart.java
 C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\model\Customer.java
 C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\model\Order.java
-C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\resources\ApplicationConfig.java
 C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\resources\AuthorResource.java
 C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\resources\BookResource.java
 C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\resources\CartResource.java
 C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\resources\CustomerResource.java
 C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\resources\OrderResource.java
+C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\store\ApplicationConfig.java
 C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\store\Storage.java
