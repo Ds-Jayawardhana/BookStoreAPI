@@ -70,14 +70,14 @@ public class BookResource {
     
     @GET
     public List<Book> getAllBooks(){
-        return new ArrayList<>(Storage.getBookList().values());
+        return new ArrayList<>(store.getBookList().values());
         
     }
     
     @GET
     @Path("/{id}")
     public Response getBooksById(@PathParam("id") String bookId){
-        Book book=Storage.getBookList().get(bookId);
+        Book book=store.getBookList().get(bookId);
         if(book==null){
             
              throw new BookNotFoundException("Book With the ID"+ bookId +"Was Not Found");
@@ -92,7 +92,7 @@ public class BookResource {
     @PUT
     @Path("/{id}")
     public Response updateBooksById(@PathParam("id") String bookId,Book updatedBook){
-        Book exsistingBook=Storage.getBookList().get(bookId);
+        Book exsistingBook=store.getBookList().get(bookId);
         
         if(exsistingBook==null){
              throw new BookNotFoundException("Book With the ID"+ bookId +"Was Not Found");
@@ -118,7 +118,7 @@ public class BookResource {
             exsistingBook.setStockQuantity(updatedBook.getStockQuantity());
         }
          
-        Storage.getBookList().put(bookId, exsistingBook);
+        store.getBookList().put(bookId, exsistingBook);
         
         return Response.status(Response.Status.CREATED)
                 .entity(updatedBook)
@@ -127,13 +127,13 @@ public class BookResource {
     
     @DELETE
     @Path("/{id}")
-    public static Response removeBook(@PathParam("id") String bookId){
-         Book exsistingBook=Storage.getBookList().get(bookId);
+    public Response removeBook(@PathParam("id") String bookId){
+         Book exsistingBook=store.getBookList().get(bookId);
          if(exsistingBook==null){
              throw new BookNotFoundException("Book With ID"+ bookId + "Cannot Found" );
              
          }
-          Storage.getBookList().remove(bookId);
+          store.getBookList().remove(bookId);
           return Response.noContent().build();
     }
     
