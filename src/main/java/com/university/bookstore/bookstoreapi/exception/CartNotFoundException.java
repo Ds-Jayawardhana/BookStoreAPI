@@ -8,6 +8,8 @@ package com.university.bookstore.bookstoreapi.exception;
  *
  * @author user
  */
-public class CartNotFoundException {
-    
+public class CartNotFoundException extends RuntimeException {
+    public CartNotFoundException(String message){
+        super(message);
+    }
 }
