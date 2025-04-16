@@ -7,6 +7,7 @@ package com.university.bookstore.bookstoreapi.resources;
 import com.university.bookstore.bookstoreapi.exception.AuthorNotFoundException;
 import com.university.bookstore.bookstoreapi.exception.InvalidInputException;
 import com.university.bookstore.bookstoreapi.model.Author;
+import com.university.bookstore.bookstoreapi.model.Book;
 import com.university.bookstore.bookstoreapi.store.Storage;
 import java.util.ArrayList;
 import java.util.List;
@@ -106,7 +107,23 @@ public class AuthorResource {
         return Response.noContent().build();
     }
     
-    
+    @GET
+    @Path("{id}/books")
+    public  List<Book> getBooksByAuthor(@PathParam("id")String authorId,Storage store){
+        Author searchAuthor=store.getAuthorList().get(authorId);
+        List <Book> booksByAuthor=new ArrayList<>();
+        if(searchAuthor==null){
+            throw new AuthorNotFoundException("Author With ID"+authorId+"not found");
+        }
+        
+        String authorName=searchAuthor.getName();
+        for(Book book:store.getBookList().values()){
+            if(book.getAuthor().equals(authorName)){
+               booksByAuthor.add(book); 
+            }
+        }
+        return booksByAuthor;
+    }
     
         
 }
