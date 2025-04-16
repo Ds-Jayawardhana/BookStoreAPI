@@ -24,7 +24,7 @@ public class Storage {
     private static final ConcurrentHashMap<String,Customer>customerList=new ConcurrentHashMap<>();
     private static final ConcurrentHashMap<String,Order>orderList=new ConcurrentHashMap<>();
 
-    public static ConcurrentHashMap<String, Book> getBookList() {
+    public ConcurrentHashMap<String, Book> getBookList() {
         return bookList;
     }
 
@@ -32,15 +32,15 @@ public class Storage {
         return authorList;
     }
 
-    public static ConcurrentHashMap<String, Cart> getCartList() {
+    public  ConcurrentHashMap<String, Cart> getCartList() {
         return cartList;
     }
 
-    public static ConcurrentHashMap<String, Customer> getCustomerList() {
+    public ConcurrentHashMap<String, Customer> getCustomerList() {
         return customerList;
     }
 
-    public static ConcurrentHashMap<String, Order> getOrderList() {
+    public ConcurrentHashMap<String, Order> getOrderList() {
         return orderList;
     }
     
