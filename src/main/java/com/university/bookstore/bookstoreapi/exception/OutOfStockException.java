@@ -8,6 +8,9 @@ package com.university.bookstore.bookstoreapi.exception;
  *
  * @author user
  */
-public class OutOfStockException {
+public class OutOfStockException extends RuntimeException {
+    public OutOfStockException(String message){
+        super(message);
+    }
     
 }

@@ -35,12 +35,12 @@ public class Cart {
         this.customerId = customerId;
     }
 
-    public Map<String, Integer> getQuantity() {
+    public Map<String, Integer> getItems() {
         return items;
     }
 
-    public void setQuantity(Map<String, Integer> quantity) {
-        this.items = quantity;
+    public void setItems(Map<String, Integer> items) {
+        this.items = items;
     }
     
     
