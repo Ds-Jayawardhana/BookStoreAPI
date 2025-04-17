@@ -8,7 +8,10 @@ import com.university.bookstore.bookstoreapi.exception.CustomerNotFoundException
 import com.university.bookstore.bookstoreapi.model.Cart;
 import com.university.bookstore.bookstoreapi.model.Customer;
 import com.university.bookstore.bookstoreapi.store.Storage;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -53,8 +56,14 @@ public class CartResource {
         }
         store.getCartList().put(customerId, exsistingCart);
         return Response.status(Response.Status.CREATED)
-                .build();
+                .build();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
         
         
+    }
+    @GET
+    @Path("{id}/cart")
+    public Cart getCart(@PathParam("id") String customerId){
+         Cart searchCart=store.getCartList().get(customerId);
+         return searchCart;
     }
 }
