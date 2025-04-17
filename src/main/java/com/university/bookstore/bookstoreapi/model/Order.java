@@ -4,6 +4,7 @@
  */
 package com.university.bookstore.bookstoreapi.model;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -15,26 +16,23 @@ public class Order {
     public Order() {
     }
 
-    public Order(String customersId, Map<Integer, Integer> orders) {
-        this.customersId = customersId;
-        this.orders = orders;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public String getCustomersId() {
-        return customersId;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+        this.order=new HashMap<>();
     }
 
-    public void setCustomersId(String customersId) {
-        this.customersId = customersId;
+    public Map<String, Integer> getOrder() {
+        return order;
+    }
+
+    public void setOrder(Map<String, Integer> order) {
+        this.order = order;
     }
     
-    public Map<Integer, Integer> getOrders() {
-        return orders;
-    }
-
-    public void setItems(Map<Integer, Integer> orders) {
-        this.orders = orders;
-    }
-    private String customersId;
-    private Map<Integer,Integer>orders;
+    private String orderId;
+    private Map<String,Integer>order;
 }

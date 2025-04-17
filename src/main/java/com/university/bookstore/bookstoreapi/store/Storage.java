@@ -62,9 +62,9 @@ public class Storage {
         String custId=UUID.randomUUID().toString();
         return custId;
     }
-    public String createCartId(){
-        String cartId=UUID.randomUUID().toString();
-        return cartId;
+    public String createOrderId(){
+        String orderId=UUID.randomUUID().toString();
+        return orderId;
     }
     
     public void createNewBook(Book book ){
@@ -83,6 +83,8 @@ public class Storage {
         customer.setCustomerId(customerId);
         customerList.put(customerId, customer);
     }
+    
+
     
 
 }
