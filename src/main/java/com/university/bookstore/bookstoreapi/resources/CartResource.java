@@ -5,14 +5,14 @@
 package com.university.bookstore.bookstoreapi.resources;
 
 import com.university.bookstore.bookstoreapi.exception.CustomerNotFoundException;
+import com.university.bookstore.bookstoreapi.exception.InvalidInputException;
 import com.university.bookstore.bookstoreapi.model.Cart;
 import com.university.bookstore.bookstoreapi.model.Customer;
 import com.university.bookstore.bookstoreapi.store.Storage;
-import java.util.ArrayList;
-import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -50,7 +50,7 @@ public class CartResource {
         
         if(exsistingCart==null){
                 Cart cart=new Cart(customerId);
-                cart.setQuantity(incomingCart.getQuantity());
+                cart.setItems(incomingCart.getItems());
                 store.getCartList().put(customerId, cart);
         
         }
@@ -64,6 +64,35 @@ public class CartResource {
     @Path("{id}/cart")
     public Cart getCart(@PathParam("id") String customerId){
          Cart searchCart=store.getCartList().get(customerId);
+          if(searchCart==null){
+              throw new CustomerNotFoundException("Cart relvant to this id Not Found");
+          }
          return searchCart;
     }
+    
+    @PUT
+    @Path("{id}/cart/items/{bookId}")
+    public Response updateCartItems(
+            
+            @PathParam("id")String customerId,
+            @PathParam("bookId")String bookId,Cart inputCart){
+        Cart searchCart=store.getCartList().get(customerId);
+        
+        if(searchCart==null){
+            throw new CustomerNotFoundException("Cart relvant to this id Not Found");
+        }
+        
+        if(inputCart==null){
+            throw new InvalidInputException("Inputs not be Null");
+        }
+        if(searchCart.getItems().containsKey(bookId)){
+            searchCart.setItems(inputCart.getItems());
+            store.getCartList().put(customerId, searchCart);
+        }
+        
+        return Response.status(Response.Status.CREATED)
+                .build();
+    }
+
+    
 }
