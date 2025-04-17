@@ -4,12 +4,14 @@
  */
 package com.university.bookstore.bookstoreapi.resources;
 
+import com.university.bookstore.bookstoreapi.exception.BookNotFoundException;
 import com.university.bookstore.bookstoreapi.exception.CustomerNotFoundException;
 import com.university.bookstore.bookstoreapi.exception.InvalidInputException;
 import com.university.bookstore.bookstoreapi.model.Cart;
 import com.university.bookstore.bookstoreapi.model.Customer;
 import com.university.bookstore.bookstoreapi.store.Storage;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -30,7 +32,7 @@ o DELETE /customers/{customerId}/cart/items/{bookId}
  */
 
 
-@Path("/customer")
+@Path("/customers")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class CartResource {
@@ -89,10 +91,29 @@ public class CartResource {
             searchCart.setItems(inputCart.getItems());
             store.getCartList().put(customerId, searchCart);
         }
+        else{
+            throw new BookNotFoundException("Book With Id"+bookId+"Not in the cart");
+        }
         
         return Response.status(Response.Status.CREATED)
                 .build();
     }
-
     
+    @DELETE
+    @Path("{id}/cart/items/{bookId}")
+    public Response deleteCartItems(
+            @PathParam("id")String customerId,
+            @PathParam("bookId")String bookId){
+        Cart searchCart=store.getCartList().get(customerId);
+        
+         if(searchCart==null){
+            throw new CustomerNotFoundException("Cart relvant to this id Not Found");
+        }
+         if(searchCart.getItems().containsKey(bookId)){
+             searchCart.getItems().remove(bookId);
+         }
+         
+         return Response.noContent().build();
+    }
 }
+    
