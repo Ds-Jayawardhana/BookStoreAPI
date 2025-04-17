@@ -6,10 +6,12 @@ package com.university.bookstore.bookstoreapi.resources;
 
 import com.university.bookstore.bookstoreapi.exception.CustomerNotFoundException;
 import com.university.bookstore.bookstoreapi.exception.InvalidInputException;
+import com.university.bookstore.bookstoreapi.model.Customer;
 import com.university.bookstore.bookstoreapi.model.Order;
 import com.university.bookstore.bookstoreapi.store.Storage;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -39,32 +41,58 @@ public class OrderResource {
     
     @POST
     public Response addOrders(@PathParam("customerId")String customerId,Order inputOrders){
-        Order searchOrder=store.getOrderList().get(customerId);
-        if(searchOrder==null){
+        
+        
+       Order newOrder= new Order();
+    
+      Customer searchCustomer=store.getCustomerList().get(customerId);
+        if(searchCustomer==null){
            throw new CustomerNotFoundException ("Order Relavant to Customer"+customerId+"Not Found");
         }
         
-        if(inputOrders.getOrders()==null || inputOrders.getTotal()<=0){
+        if(inputOrders.getOrder()==null || inputOrders.getOrderId()==null){
             throw new InvalidInputException ("Must have data for total and orders");
         }
-        searchOrder.setTotal(inputOrders.getTotal());
-        searchOrder.setItems(inputOrders.getOrders());
+//      
+        newOrder.setOrderId(store.createOrderId());
+        newOrder.setOrder(inputOrders.getOrder());
         
-        store.getOrderList().put(customerId, searchOrder);
+        store.getOrderList().put(customerId, newOrder);
+        
         
         return Response.status(Response.Status.CREATED)
                 .build();
     }
     @GET
-    public Order getOrders(@PathParam("customerId")String customerId){
-        Order searchOrder=store.getOrderList().get(customerId);
-          if(searchOrder==null){
+    public List<Object> getOrders(@PathParam("customerId")String customerId){
+        Customer searchCustomer=store.getCustomerList().get(customerId);
+         Order searchOrder=store.getOrderList().get(customerId);
+          if(searchCustomer==null){
            throw new CustomerNotFoundException ("Order Relavant to Customer"+customerId+"Not Found");
         }
           
-          return searchOrder;
+          return new ArrayList<>(searchOrder.getOrder().values());
         
     }
     
-    
+   @GET
+   @Path("{orderId}")
+   public Response getOrdersByOrderId(
+           
+           @PathParam("customerId")String customerId,
+           @PathParam("orderId")String ordersId){
+       
+      Order searchOrder=store.getOrderList().get(customerId);
+        if (searchOrder.getOrder().containsKey(ordersId)) {
+        return Response.ok(searchOrder.getOrder().get(ordersId)).build();
+    }
+       return Response.status(Response.Status.NOT_FOUND)
+            .entity("Order ID " + ordersId + " not found for customer " + customerId)
+            .build();
+   }
 }
+    
+    
+    
+   
+
