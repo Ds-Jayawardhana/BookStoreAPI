@@ -15,17 +15,17 @@ public class Order {
     public Order() {
     }
 
-    public Order(int total, Map<Integer, Integer> orders) {
-        this.total = total;
+    public Order(String customersId, Map<Integer, Integer> orders) {
+        this.customersId = customersId;
         this.orders = orders;
     }
 
-    public int getTotal() {
-        return total;
+    public String getCustomersId() {
+        return customersId;
     }
 
-    public void setTotal(int total) {
-        this.total = total;
+    public void setCustomersId(String customersId) {
+        this.customersId = customersId;
     }
     
     public Map<Integer, Integer> getOrders() {
@@ -35,6 +35,6 @@ public class Order {
     public void setItems(Map<Integer, Integer> orders) {
         this.orders = orders;
     }
-    private int total;
+    private String customersId;
     private Map<Integer,Integer>orders;
 }
