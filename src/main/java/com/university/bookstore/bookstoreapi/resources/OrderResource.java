@@ -8,7 +8,10 @@ import com.university.bookstore.bookstoreapi.exception.CustomerNotFoundException
 import com.university.bookstore.bookstoreapi.exception.InvalidInputException;
 import com.university.bookstore.bookstoreapi.model.Order;
 import com.university.bookstore.bookstoreapi.store.Storage;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -41,7 +44,7 @@ public class OrderResource {
            throw new CustomerNotFoundException ("Order Relavant to Customer"+customerId+"Not Found");
         }
         
-        if(orders.getOrders()==null || orders.getTotal()<=0){
+        if(inputOrders.getOrders()==null || inputOrders.getTotal()<=0){
             throw new InvalidInputException ("Must have data for total and orders");
         }
         searchOrder.setTotal(inputOrders.getTotal());
@@ -52,7 +55,16 @@ public class OrderResource {
         return Response.status(Response.Status.CREATED)
                 .build();
     }
-    
+    @GET
+    public Order getOrders(@PathParam("customerId")String customerId){
+        Order searchOrder=store.getOrderList().get(customerId);
+          if(searchOrder==null){
+           throw new CustomerNotFoundException ("Order Relavant to Customer"+customerId+"Not Found");
+        }
+          
+          return searchOrder;
+        
+    }
     
     
 }
