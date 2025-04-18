@@ -2,6 +2,7 @@ C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookst
 C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\exception\BookNotFoundException.java
 C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\exception\CartNotFoundException.java
 C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\exception\CustomerNotFoundException.java
+C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\exception\GenericExceptionMapper.java
 C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\exception\InvalidInputException.java
 C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\exception\OutOfStockException.java
 C:\Users\user\Desktop\BookStoreAPI\src\main\java\com\university\bookstore\bookstoreapi\model\Author.java

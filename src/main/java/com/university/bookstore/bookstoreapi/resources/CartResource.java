@@ -45,7 +45,7 @@ public class CartResource {
         Customer searchCart=store.getCustomerList().get(customerId);
         
         if(searchCart==null){
-            throw new CustomerNotFoundException("Cart associated with customer cannot find"+customerId);
+            throw new CustomerNotFoundException("Customer with ID " + customerId + " not found.");
         }
         
         Cart exsistingCart=store.getCartList().get(customerId);
@@ -67,7 +67,7 @@ public class CartResource {
     public Cart getCart(@PathParam("id") String customerId){
          Cart searchCart=store.getCartList().get(customerId);
           if(searchCart==null){
-              throw new CustomerNotFoundException("Cart relvant to this id Not Found");
+              throw new CustomerNotFoundException("Cart for customer with ID " + customerId + " not found.");
           }
          return searchCart;
     }
@@ -85,14 +85,14 @@ public class CartResource {
         }
         
         if(inputCart==null){
-            throw new InvalidInputException("Inputs not be Null");
+            throw new InvalidInputException("Cart items must not be null.");
         }
         if(searchCart.getItems().containsKey(bookId)){
             searchCart.setItems(inputCart.getItems());
             store.getCartList().put(customerId, searchCart);
         }
         else{
-            throw new BookNotFoundException("Book With Id"+bookId+"Not in the cart");
+            throw new BookNotFoundException("Book with ID " + bookId + " not found in cart.");
         }
         
         return Response.status(Response.Status.CREATED)
@@ -107,7 +107,7 @@ public class CartResource {
         Cart searchCart=store.getCartList().get(customerId);
         
          if(searchCart==null){
-            throw new CustomerNotFoundException("Cart relvant to this id Not Found");
+            throw new CustomerNotFoundException("Cart for customer with ID " + customerId + " not found.");
         }
          if(searchCart.getItems().containsKey(bookId)){
              searchCart.getItems().remove(bookId);

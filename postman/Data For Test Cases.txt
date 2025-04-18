@@ -1,0 +1,8 @@
+{
+  "name": "J.K. Rowling",
+  "biography": "British author, best known for the Harry Potter series"
+}
+{
+  "name": "The Hobbit",
+  "biography": "American novelist best known for A Song of Ice and Fire series"
+}

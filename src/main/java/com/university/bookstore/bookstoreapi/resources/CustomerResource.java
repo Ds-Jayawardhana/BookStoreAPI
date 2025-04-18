@@ -50,6 +50,7 @@ public class CustomerResource {
         
         
     }
+    
     @GET
     public List<Customer> getAllCustomer(Customer customer){
         return new ArrayList<>(store.getCustomerList().values());
@@ -68,6 +69,7 @@ public class CustomerResource {
                 .entity(customer)
                 .build();
     }
+
     @PUT
     @Path("{id}")
     public Response updateCustomer(@PathParam("id")String customerId ,Customer customer){

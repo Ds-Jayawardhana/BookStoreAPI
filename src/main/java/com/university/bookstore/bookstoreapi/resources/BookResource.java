@@ -71,6 +71,8 @@ public class BookResource {
     
     @GET
     public List<Book> getAllBooks(){
+        
+        
         return new ArrayList<>(store.getBookList().values());
         
     }

@@ -8,6 +8,7 @@ com\university\bookstore\bookstoreapi\resources\CustomerResource.class
 com\university\bookstore\bookstoreapi\exception\BookNotFoundException.class
 com\university\bookstore\bookstoreapi\resources\AuthorResource.class
 com\university\bookstore\bookstoreapi\exception\CartNotFoundException.class
+com\university\bookstore\bookstoreapi\exception\GenericExceptionMapper.class
 com\university\bookstore\bookstoreapi\exception\CustomerNotFoundException.class
 com\university\bookstore\bookstoreapi\exception\InvalidInputException.class
 com\university\bookstore\bookstoreapi\exception\OutOfStockException.class
