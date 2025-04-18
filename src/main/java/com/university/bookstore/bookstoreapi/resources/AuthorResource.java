@@ -34,99 +34,78 @@ o PUT /authors/{id}
 o DELETE /authors/{id}
 o GET /authors/{id}/books*/
 
-
-
 @Path("/authors")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class AuthorResource {
-    final Storage store=new Storage();
-    
-    
+    final Storage store = new Storage();
+
     @POST
-    public Response createAuthors(Author author){
-        if(author.getBiography()==null||author.getName()==null){
-            throw new InvalidInputException("Any of fields Not must be empty");
-        
+    public Response createAuthors(Author author) {
+        if (author == null || author.getName() == null || author.getBiography() == null) {
+            throw new InvalidInputException("Name and biography must not be null or empty");
         }
         store.createNewAuthor(author);
-        return Response.status(Response.Status.CREATED)
-                .build();
+        return Response.status(Response.Status.CREATED).build();
     }
-    
+
     @GET
-    public List<Author> getAllAuthors(){
-            return new  ArrayList<>(store.getAuthorList().values());
-        }
-    
+    public List<Author> getAllAuthors() {
+        return new ArrayList<>(store.getAuthorList().values());
+    }
+
     @GET
     @Path("{id}")
-    public Author getAuthorsById(@PathParam("id") String authorId){
-        Author author=store.getAuthorList().get(authorId);
-        if(author==null){
-            throw new AuthorNotFoundException("Cannot Find Author With Id"+authorId);
+    public Author getAuthorsById(@PathParam("id") String authorId) {
+        Author author = store.getAuthorList().get(authorId);
+        if (author == null) {
+            throw new AuthorNotFoundException("Cannot Find Author With Id " + authorId);
         }
-        
         return author;
     }
-    
+
     @PUT
     @Path("{id}")
-    public Response updateAuthor(@PathParam("id") String authorId ,Author newAuthor){
-        Author author=store.getAuthorList().get(authorId);
-        
-        
-        if(author==null){
-            throw new AuthorNotFoundException("Cannot Find Author With Id"+authorId);
+    public Response updateAuthor(@PathParam("id") String authorId, Author newAuthor) {
+        Author author = store.getAuthorList().get(authorId);
+        if (author == null) {
+            throw new AuthorNotFoundException("Cannot Find Author With Id " + authorId);
         }
-        
-        if(newAuthor.getBiography()==null || newAuthor.getName()==null){
-            throw new InvalidInputException("Field not must be null");
+        if (newAuthor == null || newAuthor.getBiography() == null || newAuthor.getName() == null) {
+            throw new InvalidInputException("Name and biography must not be null or empty");
         }
-        if(newAuthor.getBiography()!=null){
-            author.setBiography(newAuthor.getBiography());
-        }
-        if(author.getName()!=null ){
-            author.setName(newAuthor.getName());
-        }
-        return Response.status(Response.Status.CREATED)
-                .entity("New data Updated"+ author)
-                .build();
-       
+        author.setBiography(newAuthor.getBiography());
+        author.setName(newAuthor.getName());
+        return Response.status(Response.Status.OK)
+                       .entity(author)
+                       .build();
     }
+
     @DELETE
     @Path("{id}")
-    public Response removeAuthor(@PathParam("id") String authorId){
-        Author searchAuthor=store.getAuthorList().get(authorId);
-        
-        if(searchAuthor==null){
-           throw new AuthorNotFoundException("Author with Id"+authorId+"cannot find");
+    public Response removeAuthor(@PathParam("id") String authorId) {
+        Author searchAuthor = store.getAuthorList().get(authorId);
+        if (searchAuthor == null) {
+            throw new AuthorNotFoundException("Author with Id " + authorId + " cannot find");
         }
-        
         store.getAuthorList().remove(authorId);
         return Response.noContent().build();
     }
-    
+
     @GET
     @Path("{id}/books")
-    public  List<Book> getBooksByAuthor(@PathParam("id")String authorId,Storage store){
-        Author searchAuthor=store.getAuthorList().get(authorId);
-        List <Book> booksByAuthor=new ArrayList<>();
-        if(searchAuthor==null){
-            throw new AuthorNotFoundException("Author With ID"+authorId+"not found");
+    public List<Book> getBooksByAuthor(@PathParam("id") String authorId) {
+        Author searchAuthor = store.getAuthorList().get(authorId);
+        List<Book> booksByAuthor = new ArrayList<>();
+        if (searchAuthor == null) {
+            throw new AuthorNotFoundException("Author With ID " + authorId + " not found");
         }
-        
-        String authorName=searchAuthor.getName();
-        for(Book book:store.getBookList().values()){
-            if(book.getAuthor().equals(authorName)){
-               booksByAuthor.add(book); 
+        String authorName = searchAuthor.getName();
+        for (Book book : store.getBookList().values()) {
+            if (book.getAuthor().equals(authorName)) {
+                booksByAuthor.add(book);
             }
         }
         return booksByAuthor;
     }
-    
-        
 }
-    
-    
-
