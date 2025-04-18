@@ -7,6 +7,7 @@ package com.university.bookstore.bookstoreapi.resources;
 import com.university.bookstore.bookstoreapi.exception.BookNotFoundException;
 import com.university.bookstore.bookstoreapi.exception.CustomerNotFoundException;
 import com.university.bookstore.bookstoreapi.exception.InvalidInputException;
+import com.university.bookstore.bookstoreapi.model.Book;
 import com.university.bookstore.bookstoreapi.model.Cart;
 import com.university.bookstore.bookstoreapi.model.Customer;
 import com.university.bookstore.bookstoreapi.store.Storage;
@@ -72,7 +73,36 @@ public class CartResource {
          return searchCart;
     }
     
- @PUT
+    
+    
+//    @PUT
+//    @Path("{id}/cart/items/{bookId}")
+//    public Response updateCartItems(
+//            
+//            @PathParam("id")String customerId,
+//            @PathParam("bookId")String bookId,Cart inputCart){
+//        Cart searchCart=store.getCartList().get(customerId);
+//        
+//        if(searchCart==null){
+//            throw new CustomerNotFoundException("Cart relvant to this id Not Found");
+//        }
+//        
+//        if(inputCart==null){
+//            throw new InvalidInputException("Cart items must not be null.");
+//        }
+//        if(searchCart.getItems().containsKey(bookId)){
+//            searchCart.setItems(inputCart.getItems());
+//            store.getCartList().put(customerId, searchCart);
+//        }
+//        else{
+//            throw new BookNotFoundException("Book with ID " + bookId + " not found in cart.");
+//        }
+//        
+//        return Response.status(Response.Status.CREATED)
+//                .build();
+//    }
+    
+    @PUT
 @Path("{id}/cart/items/{bookId}")
 public Response updateCartItems(
         @PathParam("id") String customerId,
@@ -113,7 +143,8 @@ public Response updateCartItems(
 
     return Response.ok(searchCart).build();
 }
-
+    
+    
     @DELETE
     @Path("{id}/cart/items/{bookId}")
     public Response deleteCartItems(
