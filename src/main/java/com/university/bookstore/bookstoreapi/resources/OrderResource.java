@@ -50,8 +50,8 @@ public class OrderResource {
            throw new CustomerNotFoundException ("Order Relavant to Customer"+customerId+"Not Found");
         }
         
-        if(inputOrders.getOrder()==null || inputOrders.getOrderId()==null){
-            throw new InvalidInputException ("Must have data for total and orders");
+        if(inputOrders.getOrder()==null ){
+            throw new InvalidInputException ("order Fields noort be Null");
         }
 //      
         newOrder.setOrderId(store.createOrderId());
@@ -71,7 +71,7 @@ public class OrderResource {
            throw new CustomerNotFoundException ("Order Relavant to Customer"+customerId+"Not Found");
         }
           
-          return new ArrayList<>(searchOrder.getOrder().values());
+          return new ArrayList<>(searchOrder.getOrder().entrySet());
         
     }
     

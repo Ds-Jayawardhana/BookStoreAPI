@@ -6,3 +6,17 @@
   "name": "The Hobbit",
   "biography": "American novelist best known for A Song of Ice and Fire series"
 }
+
+
+{
+  "items": {
+    "book1": 2,
+    "book2": 1
+  }
+}
+
+
+d0158f20-f944-4072-835e-a593a86ce94e:-customer Idv
+f7d30c43-f4f8-472e-a8a6-17abff582d41:-author Id
+
+2888890f-6bbe-4635-8284-2ad5e2372f1c:- Book Idv 

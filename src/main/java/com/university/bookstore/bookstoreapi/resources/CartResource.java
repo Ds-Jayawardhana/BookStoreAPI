@@ -41,7 +41,7 @@ public class CartResource {
     
     
     @POST
-    @Path("/{id}/cart")
+    @Path("/{id}/cart/items")
     public Response getAllItems(@PathParam("id") String customerId,Cart incomingCart){
         Customer searchCart=store.getCustomerList().get(customerId);
         
@@ -102,42 +102,42 @@ public class CartResource {
 //                .build();
 //    }
     
-    @PUT
+@PUT
 @Path("{id}/cart/items/{bookId}")
 public Response updateCartItems(
         @PathParam("id") String customerId,
         @PathParam("bookId") String bookId,
         Cart inputCart) {
-    // Validate customer exists
+
     if (!store.getCustomerList().containsKey(customerId)) {
         throw new CustomerNotFoundException("Customer with ID " + customerId + " was not found");
     }
 
-    // Validate book exists in Storage
+
     Book book = store.getBookList().get(bookId);
     if (book == null) {
         throw new BookNotFoundException("Book with ID " + bookId + " was not found");
     }
 
-    // Validate input cart
+
     if (inputCart == null || inputCart.getItems() == null || !inputCart.getItems().containsKey(bookId)) {
         throw new InvalidInputException("Cart items must include the book ID " + bookId + " with a valid quantity");
     }
 
-    // Get or create cart
+
     Cart searchCart = store.getCartList().get(customerId);
     if (searchCart == null) {
         searchCart = new Cart();
         store.getCartList().put(customerId, searchCart);
     }
 
-    // Validate quantity
+
     Integer quantity = inputCart.getItems().get(bookId);
     if (quantity == null || quantity <= 0) {
         throw new InvalidInputException("Quantity for book ID " + bookId + " must be greater than 0");
     }
 
-    // Update the specific book quantity in the cart
+
     searchCart.getItems().put(bookId, quantity);
     store.getCartList().put(customerId, searchCart);
 

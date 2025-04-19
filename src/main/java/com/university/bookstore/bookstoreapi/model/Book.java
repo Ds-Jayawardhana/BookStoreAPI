@@ -13,11 +13,11 @@ public class Book {
     public Book() {
     }
 
-    public Book(String bookId,String title, String author, String ISBN, int year, int price, int stockQuantity) {
+    public Book(String bookId,String title, String author, String isbn, int year, int price, int stockQuantity) {
         this.bookId=bookId;
         this.title = title;
         this.author = author;
-        this.ISBN = ISBN;
+        this.isbn = isbn;
         this.year = year;
         this.price = price;
         this.stockQuantity = stockQuantity;
@@ -39,12 +39,12 @@ public class Book {
         this.author = author;
     }
 
-    public String getISBN() {
-        return ISBN;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
+    public void setIsbn(String Isbn) {
+        this.isbn = Isbn;
     }
 
     public int getYear() {
@@ -82,7 +82,7 @@ public class Book {
     private String bookId;
     private String title;
     private String author;
-    private String ISBN;
+    private String isbn;
     private int year;
     private int price;
     private int stockQuantity;

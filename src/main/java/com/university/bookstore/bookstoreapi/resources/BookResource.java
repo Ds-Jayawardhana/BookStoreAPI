@@ -51,7 +51,7 @@ public class BookResource {
             if(
                 book.getTitle() == null || 
                 book.getAuthor() == null || 
-                book.getISBN() == null || 
+                book.getIsbn() == null || 
                 book.getPrice() <= 0 || 
                 book.getStockQuantity() < 0 || 
                 book.getYear() <= 0 
@@ -108,8 +108,8 @@ public class BookResource {
          if(exsistingBook.getAuthor() != null ){
             exsistingBook.setAuthor(updatedBook.getAuthor());
         }
-          if(exsistingBook.getISBN() != null ){
-            exsistingBook.setISBN(updatedBook.getISBN());
+          if(exsistingBook.getIsbn() != null ){
+            exsistingBook.setIsbn(updatedBook.getIsbn());
         }
            if(exsistingBook.getYear()!= 0 && exsistingBook.getYear()<=LocalDate.now().getYear() ){
             exsistingBook.setYear(updatedBook.getYear());

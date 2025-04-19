@@ -1,0 +1,1832 @@
+{
+	"info": {
+		"_postman_id": "4982ff50-8e2b-4481-ac96-3f783c0e703c",
+		"name": "BookStore API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40034280",
+		"_collection_link": "https://personal-3754.postman.co/workspace/Personal-Workspace~1dff27df-e0f9-4288-ac48-d64b00cdbc52/collection/40034280-4982ff50-8e2b-4481-ac96-3f783c0e703c?action=share&source=collection_link&creator=40034280"
+	},
+	"item": [
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Harry Potter and the Philosopher's Stone\",\r\n  \"author\": \"J.K. Rowling\",\r\n  \"ISBN\": \"978-0-7475-3269-9\",\r\n  \"year\": 1997,\r\n  \"price\": 20,\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/BookStoreAPI/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"BookStoreAPI",
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Valid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"The Hobbit\",\r\n  \"author\": \"J.R.R. Tolkien\",\r\n  \"isbn\": \"978-0-261-10221-7\",\r\n  \"year\": 1937,\r\n  \"price\": 15,\r\n  \"stockQuantity\": 50\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/books",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"books"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Missing Field",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "//Try to add without Invalid JSON Data\r\n\r\n{\r\n  \"title\": \"The Hobbit\",\r\n  \"author\": \"J.R.R. Tolkien\",\r\n  \"year\": 1937,\r\n  \"price\": 15,\r\n  \"stockQuantity\": 50\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/books",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"books"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid Year",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"The Hobbit\",\r\n  \"author\": \"J.R.R. Tolkien\",\r\n  \"isbn\": \"978-0-261-10221-7\",\r\n  \"year\": 2057,\r\n  \"price\": 15,\r\n  \"stockQuantity\": 50\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/books",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"books"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "All Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/BookStoreAPI/api/books/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"BookStoreAPI",
+								"api",
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/BookStoreAPI/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"BookStoreAPI",
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "No Data",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/books",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"books"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Valid Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/books/255aa6bd-ce3b-4a6d-921d-7e5239e044c6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"books",
+										"255aa6bd-ce3b-4a6d-921d-7e5239e044c6"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/books/255aa6bd-ce3b-4a6d-921d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"books",
+										"255aa6bd-ce3b-4a6d-921d"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/BookStoreAPI/api/books/255aa6bd-ce3b-4a6d-921d-7e5239e044c6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"BookStoreAPI",
+								"api",
+								"books",
+								"255aa6bd-ce3b-4a6d-921d-7e5239e044c6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Valid Id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"bookId\": \"255aa6bd-ce3b-4a6d-921d-7e5239e044c6\",  \r\n  \"title\": \"The Hobbit\",\r\n  \"author\": \"J.R.R. Tolkien\",\r\n  \"isbn\": \"978-0-261-10221-7\",\r\n  \"year\": 1937,\r\n  \"price\": 20,\r\n  \"stockQuantity\": 40\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/books/255aa6bd-ce3b-4a6d-921d-7e5239e044c6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"books",
+										"255aa6bd-ce3b-4a6d-921d-7e5239e044c6"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid Id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/books/255aa6bd-ce3b-4a6d-9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"books",
+										"255aa6bd-ce3b-4a6d-9"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Valid",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/books/255aa6bd-ce3b-4a6d-921d-7e5239e044c6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"books",
+										"255aa6bd-ce3b-4a6d-921d-7e5239e044c6"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/books/255aa6bd-ce3b-4a6d-921d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"books",
+										"255aa6bd-ce3b-4a6d-921d"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "NotFound",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/books/255aa6bd-ce3b-4a6d-921d-7e5239e044c6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"books",
+										"255aa6bd-ce3b-4a6d-921d-7e5239e044c6"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authors",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Haruki Murakami\",\r\n    \"biography\": \"Japanese author known for his blending of magical realism, melancholy themes, and surreal narratives in works such as Kafka on the Shore and Norwegian Wood.\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/BookStoreAPI/api/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"BookStoreAPI",
+								"api",
+								"authors"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Valid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"J.K. Rowling\",\r\n  \"biography\": \"British author, best known for the Harry Potter series\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/authors",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"authors"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"biography\": \"British author, best known for the Harry Potter series\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/authors",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"authors"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GET",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/BookStoreAPI/api/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"BookStoreAPI",
+								"api",
+								"authors"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Valid",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/authors",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"authors"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "AuthorById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Valid Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/authors/25d81618-4887-4b62-b953-437e47a04a2f",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"authors",
+										"25d81618-4887-4b62-b953-437e47a04a2f"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/authors/25d81618-4887-4b62-b953-437e47a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"authors",
+										"25d81618-4887-4b62-b953-437e47a"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"name\": \"Disandu Sanhida\",\r\n        \"biography\": \"American novelist and short story writer, best known for the epic fantasy series A Song of Ice and Fire.\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/BookStoreAPI/api/authors/a9e5a118-e4a4-438e-8195-80e1e85016c7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"BookStoreAPI",
+								"api",
+								"authors",
+								"a9e5a118-e4a4-438e-8195-80e1e85016c7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Valid Id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"J.K. Rowling\",\r\n  \"biography\": \"Updated Bigraphy:-British author, best known for the Harry Potter Writer\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/authors/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"authors",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid Id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"name\": \"Disandu Sanhida\",\r\n        \"biography\": \"American novelist and short story writer, best known for the epic fantasy series A Song of Ice and Fire.\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/authors/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"authors",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Valid Id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/authors",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"authors"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid ID",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/authors",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"authors"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/BookStoreAPI/api/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"BookStoreAPI",
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Valid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Disandu Sanhida\",\r\n  \"email\": \"disandu@gmail.com\",\r\n  \"password\": \"pass123we\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \r\n  \"password\": \"pass123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GET All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/BookStoreAPI/api/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"BookStoreAPI",
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/BookStoreAPI/api/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"BookStoreAPI",
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Valid Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/e3afd0dd-9af4-4a15-9658-ce5022bb2afa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"e3afd0dd-9af4-4a15-9658-ce5022bb2afa"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/e3afd0dd-9af4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"e3afd0dd-9af4"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/BookStoreAPI/api/customers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"BookStoreAPI",
+								"api",
+								"customers",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Valid Id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"customerId\": \"e3afd0dd-9af4-4a15-9658-ce5022bb2afa\",\r\n        \"name\": \"Disandu Sanhida\",\r\n        \"email\": \"disandu@example.com\",\r\n        \"password\": \"pass123\"\r\n}\r\n    ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/e3afd0dd-9af4-4a15-9658-ce5022bb2afa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"e3afd0dd-9af4-4a15-9658-ce5022bb2afa"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid Id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/e3afd0dd-9af4-4a15-9658",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"e3afd0dd-9af4-4a15-9658"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/BookStoreAPI/api/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"BookStoreAPI",
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Valid Id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/e3afd0dd-9af4-4a15-9658-ce5022bb2afa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"e3afd0dd-9af4-4a15-9658-ce5022bb2afa"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid Id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/e3afd0dd-9af4-4a15-9658",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"e3afd0dd-9af4-4a15-9658"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"items\": {\r\n    \"book1\": 2,\r\n    \"book2\": 1\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/BookStoreAPI/api/customers/cdf22fba-89a0-4f41-83a3-998bc4cff0bb/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"BookStoreAPI",
+								"api",
+								"customers",
+								"cdf22fba-89a0-4f41-83a3-998bc4cff0bb",
+								"cart"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Valid Id",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"items\": {\r\n    \"145f2f57-e38d-44cc-bbc9-0edd1f8087e4\": 10\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/c53cc8dc-ecc8-4de3-99ef-0a1c31d7ea14/cart/items",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"c53cc8dc-ecc8-4de3-99ef-0a1c31d7ea14",
+										"cart",
+										"items"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid Id",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"items\": {\r\n    \"book1\": 2,\r\n    \"book2\": 1\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/cdf22fba-89a0-4f41-83a3-998bc4cff0bb/cart",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"cdf22fba-89a0-4f41-83a3-998bc4cff0bb",
+										"cart"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Valid Cust ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/bdf0cfa0-9431-4c20-8df9-0d6e1d71d74b/cart",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"bdf0cfa0-9431-4c20-8df9-0d6e1d71d74b",
+										"cart"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/d454624c-d1ea-4e58/cart",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"d454624c-d1ea-4e58",
+										"cart"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GetAllItems",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/BookStoreAPI/api/customers/67a60513-9ae9-4c67-85f9-d7a7273d137f/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"BookStoreAPI",
+								"api",
+								"customers",
+								"67a60513-9ae9-4c67-85f9-d7a7273d137f",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/BookStoreAPI/api/customers/d454624c-d1ea-4e58-9cd8-c05796f1ad4e/cart/ \"eeadd9a0-a273-4728-99ed-f06f5de74ce3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"BookStoreAPI",
+								"api",
+								"customers",
+								"d454624c-d1ea-4e58-9cd8-c05796f1ad4e",
+								"cart",
+								" \"eeadd9a0-a273-4728-99ed-f06f5de74ce3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Valid Book Id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"customerId\":\"67a60513-9ae9-4c67-85f9-d7a7273d137f\",\r\n  \"items\": {\r\n    \"145f2f57-e38d-44cc-bbc9-0edd1f8087e4\": 15\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/c53cc8dc-ecc8-4de3-99ef-0a1c31d7ea14/cart/items/145f2f57-e38d-44cc-bbc9-0edd1f8087e4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"c53cc8dc-ecc8-4de3-99ef-0a1c31d7ea14",
+										"cart",
+										"items",
+										"145f2f57-e38d-44cc-bbc9-0edd1f8087e4"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid Book Id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/d454624c-d1ea-4e58-9cd8-c05796f1ad4e/cart/ \"eeadd9a0-a273-4728-99ed-f06f5de74ce3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"d454624c-d1ea-4e58-9cd8-c05796f1ad4e",
+										"cart",
+										" \"eeadd9a0-a273-4728-99ed-f06f5de74ce3"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/BookStoreAPI/api/customers/c53cc8dc-ecc8-4de3-99ef-0a1c31d7ea14/cart/items/145f2f57-e38d-44cc-bbc9-0edd1f8087e4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"BookStoreAPI",
+								"api",
+								"customers",
+								"c53cc8dc-ecc8-4de3-99ef-0a1c31d7ea14",
+								"cart",
+								"items",
+								"145f2f57-e38d-44cc-bbc9-0edd1f8087e4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "valid BookId",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/c53cc8dc-ecc8-4de3-99ef-0a1c31d7ea14/cart/items/145f2f57-e38d-44cc-bbc9-0edd1f8087e4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"c53cc8dc-ecc8-4de3-99ef-0a1c31d7ea14",
+										"cart",
+										"items",
+										"145f2f57-e38d-44cc-bbc9-0edd1f8087e4"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid BookId",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/c53cc8dc-ecc8-4de3-99ef-0a1c31d7ea14/cart/items/145f2f57-e38d-44cc-bbc9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"c53cc8dc-ecc8-4de3-99ef-0a1c31d7ea14",
+										"cart",
+										"items",
+										"145f2f57-e38d-44cc-bbc9"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Valid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"order\": {\r\n    \"2888890f-6bbe-4635-8284-2ad5e2372f1c\": 2\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/d0158f20-f944-4072-835e-a593a86ce94e/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"d0158f20-f944-4072-835e-a593a86ce94e",
+										"orders"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Invalid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"order\": {\r\n    \"145f2f57-e38d-44cc-bbc9-0edd1f8087e4\": 2\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/c53cc8dc-ecc8-47ea14/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"c53cc8dc-ecc8-47ea14",
+										"orders"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Null",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"order\": {\r\n    \"93292105-a4e9-4152-b8f8-ef1c9f239096\": 0\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/f818870c-c87b-425a-8892-4a415dd7ffce/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"f818870c-c87b-425a-8892-4a415dd7ffce",
+										"orders"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Valid",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/d0158f20-f944-4072-835e-a593a86ce94e/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"d0158f20-f944-4072-835e-a593a86ce94e",
+										"orders"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/d0158f20-f94a593a86ce94e/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"d0158f20-f94a593a86ce94e",
+										"orders"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GET02",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Valid",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/d0158f20-f944-4072-835e-a593a86ce94e/orders/2888890f-6bbe",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"d0158f20-f944-4072-835e-a593a86ce94e",
+										"orders",
+										"2888890f-6bbe"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Invalid",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/BookStoreAPI/api/customers/d0158f20-f944-4072-835e-a593a86ce94e/orders/2888890f-6bbe",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"BookStoreAPI",
+										"api",
+										"customers",
+										"d0158f20-f944-4072-835e-a593a86ce94e",
+										"orders",
+										"2888890f-6bbe"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	]
+}
